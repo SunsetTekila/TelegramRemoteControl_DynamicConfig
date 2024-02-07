@@ -22,7 +22,10 @@
 Ще спробуйте скористатись віртуальним рередовищем python це можна зробити так:
 * відкриваємо командну строку через команду cd преходимо в корінну папку програми
 * пишемо команду .env\scripts\activate
-* тепер у вас в строці з'явиться помітка "(.env)" : ![image](https://github.com/SunsetTekila/TelegramRemoteControl_DynamicConfig/assets/157602307/6034594c-ddb4-42f5-bc9f-d69e84d39e09)
+* тепер у вас в строці з'явиться помітка "(.env)" :
+* 
+*  ![image](https://github.com/SunsetTekila/TelegramRemoteControl_DynamicConfig/assets/157602307/6034594c-ddb4-42f5-bc9f-d69e84d39e09)
+*  
 * тепер ви можете використовувати готовий набір бібліотек і маєте можливість використовувати "pyinstaller" а саме введіть команду: "pyinstaller --noconfirm --onefile --windowed (назва програми.py) (назва config.py)". Ще ви можете запустити програму, щоб це зробити вам потрібно ввести команду "python telegram-remote-shell.py"
 
 
