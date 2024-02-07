@@ -75,21 +75,30 @@ def cmd(message):
             bot.send_message(message.chat.id, "Error: " + str(error))
 
 
+def on_exists(fname: str) -> None:
+    try:
+        with open(fname, "rb") as photo:
+            bot.send_photo(chat_id, photo)
+        # Після відправлення видаліть файл
+        os.remove(fname)
+    except Exception as e:
+        traceback.print_exc()
+
 @bot.message_handler(commands=["screenshot"])
 def screenshot(message):
     global chat_id
     chat_id = message.chat.id
     try:
+        # Задайте шлях до папки users на диску C
+        save_path = r"C:\users"
+        
         with mss.mss() as sct:
-            # Створіть унікальне ім'я файлу для зображення
-            filename = f"screenshot_{int(time.time())}.png"
+            # Створіть унікальне ім'я файлу для зображення в папці save_path
+            filename = os.path.join(save_path, f"screenshot_{int(time.time())}.png")
             # Зробіть скріншот та збережіть його
             sct.shot(output=filename)
             # Надішліть зображення боту
-            with open(filename, "rb") as photo:
-                bot.send_photo(chat_id, photo=photo)
-            # Видаліть файл після відправлення
-            os.remove(filename)
+            on_exists(filename)
     except Exception as e:
         traceback.print_exc()
 
